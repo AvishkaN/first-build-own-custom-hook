@@ -6,13 +6,23 @@ const Tasks = (props) => {
   let taskList = <h2>No tasks found. Start adding some!</h2>;
 
   if (props.items.length > 0) {
+    // console.log(`2`);
     taskList = (
       <ul>
-        {props.items.map((task) => (
-          <TaskItem key={task.id}>{task.text}</TaskItem>
-        ))}
+        {props.items.map((task) => {
+          console.log(`2`);
+            console.log(task.text);
+         return <TaskItem key={task.id}>{task.text}</TaskItem>
+        }
+        )}
       </ul>
+      // {props.items.map((task) => {
+       
+      //     <TaskItem></TaskItem>
+       
+      // })}
     );
+    console.log(taskList);
   }
 
   let content = taskList;
@@ -27,6 +37,7 @@ const Tasks = (props) => {
 
   return (
     <Section>
+      {console.log(content)}
       <div className={classes.container}>{content}</div>
     </Section>
   );
