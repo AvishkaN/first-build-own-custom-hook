@@ -19,8 +19,10 @@ function App() {
     const loadedTasks = [];
 
       for (const taskKey in data) {
-        console.log(taskKey);
+        console.log(data.name); // -Mhm1auCKxUqhWj9knUy
+        console.log(data); //{}
         // loadedTasks.push({ id: taskKey, text: data[taskKey].text });
+        // loadedTasks.push({ id: taskKey, text:data[taskKey] });
         loadedTasks.push({ id: taskKey, text:data[taskKey] });
       }
       console.log(loadedTasks);
@@ -30,7 +32,7 @@ function App() {
     //-->
    await setTasks((prevTasks) => {
       console.log(prevTasks);
-      return loadedTasks
+      return prevTasks.concat(loadedTasks);
     });
    await console.log(tasks);
   };
@@ -68,6 +70,8 @@ function App() {
 
   useEffect(() => {
     fetchTasks();
+   
+
   }, []);
 
 
